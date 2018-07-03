@@ -14,6 +14,7 @@ public class ComputerTest {
 
     @Before
     public void before() {
+        mouse = new Mouse("Corded", 3);
         monitor = new Monitor(22, 786432);
         computer = new Computer(8, 512, monitor, mouse);
     }
@@ -39,29 +40,35 @@ public class ComputerTest {
     }
 
     @Test
-    public void canOutputDataViaPrinter(){
+    public void canOutputDataViaPrinter() {
         Printer printer = new Printer("Epson", "Stylus", 120, 4);
         computer = new Computer(8, 512, printer, mouse);
         assertEquals("printing: holiday pictures", computer.outputData("holiday pictures"));
     }
 
     @Test
-    public void canOutputDataViaSpeaker(){
+    public void canOutputDataViaSpeaker() {
         Speaker speaker = new Speaker(1000);
         computer = new Computer(8, 512, speaker, keyboard);
         assertEquals("playing: Beep!", computer.outputData("Beep!"));
     }
 
     @Test
-    public void canSteOutputDevice(){
+    public void canSteOutputDevice() {
         Printer printer = new Printer("Epson", "Stylus", 120, 4);
         computer.setOutputDevice(printer);
         assertEquals("printing: dissertation", computer.outputData("dissertation"));
     }
 
     @Test
-    public void canGetInputDevice(){
+    public void canGetInputDevice() {
         computer = new Computer(8, 512, speaker, keyboard);
         assertEquals(keyboard, computer.getInputDevice());
     }
+
+    @Test
+    public void canSendData() {
+        assertEquals("I'm sending data", computer.getData());
+    }
+
 }
