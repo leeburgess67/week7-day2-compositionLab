@@ -19,4 +19,8 @@ public class KeyboardTest {
         assertEquals("wireless", keyboard.getType());
     }
 
+    @Test
+    public void canSendData(){
+        assertEquals("I'm sending data", keyboard.sendData());
+    }
 }

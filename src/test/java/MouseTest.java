@@ -23,4 +23,9 @@ public class MouseTest {
         assertEquals(2, mouse.getNumOfButtons());
     }
 
+    @Test
+    public void canSendData(){
+        assertEquals("I'm sending data", mouse.sendData());
+    }
+
 }
